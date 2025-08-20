@@ -1,12 +1,12 @@
 from lista import adicionar_tarefa, listar_tarefa, remover_tarefa
 
 while True:
-  print("---LISTA DE AFAZERES---")
+  print("\n---LISTA DE AFAZERES---")
   print("1 = Adicionar tarefa")
-  print(" 2 = Listar tarefas")
+  print("2 = Listar tarefas")
   print("3 = Remover tarefa")
   print("4 = Sair")
-  escolha = input(int("Digite um número (1-4): "))
+  escolha = int(input("Digite um número (1-4): "))
   if escolha == 1:
     adicionar_tarefa()
   elif escolha == 2:
