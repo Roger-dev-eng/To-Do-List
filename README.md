@@ -1,6 +1,6 @@
 # 📝 To-Do List em Python
 
-Um simples gerenciador de tarefas feito em **Python** e salvo em **Json** para ser executado no terminal.  
+Um simples gerenciador de tarefas feito em **Python** com o de **Json** para salvar a lista, mesmo após o fechamento do programa.  
 O usuário pode **adicionar, listar e remover** tarefas de forma prática e interativa.
 
 ---
