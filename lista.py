@@ -22,12 +22,13 @@ def adicionar_tarefa():
 
 def listar_tarefa():
     lista = carregar_tarefas()
+    print(f"\nVocê tem {len(lista)} tarefa(s)")
     if lista:
-        print("\nSuas tarefas:")
+        print("Suas tarefas:")
         for i, tarefa in enumerate(lista, 1):
             print(f"{i}. {tarefa}")
     else:
-        print("\nNenhuma tarefa")
+        print("Nenhuma tarefa")
 
 def remover_tarefa():
     lista = carregar_tarefas()
@@ -35,12 +36,14 @@ def remover_tarefa():
       listar_tarefa()
       try:
         id = int(input("Digite o número da tarefa que deseja remover: "))
-        if 1 <= id <= len(lista):
-            removida = lista.pop(id - 1)
-            salvar_tarefa(lista)
-            print(f"Tarefa '{removida}' removida com sucesso")
-        else:
-            print("número inválido")
+        ESCOLHA = input("Tem certeza que deseja remover? (s/n) ")
+        if ESCOLHA == 's':
+          if 1 <= id <= len(lista):
+              removida = lista.pop(id - 1)
+              salvar_tarefa(lista)
+              print(f"Tarefa '{removida}' removida com sucesso")
+          else:
+              print("número inválido")
       except ValueError:
           print("Digite apenas números")
     else:
