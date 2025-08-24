@@ -6,10 +6,11 @@ O usuário pode **adicionar, listar e remover** tarefas de forma prática e inte
 ---
 
 ## 🚀 Funcionalidades
-- ✅ Adicionar novas tarefas
-- 📋 Listar todas as tarefas salvas
-- ❌ Remover tarefas por número
-- 🛑 Encerrar o programa de forma segura
+-  Adicionar novas tarefas
+-  Listar todas as tarefas salvas
+-  Remover tarefas por número
+-  Concluir as tarefas
+-  Encerrar o programa de forma segura
 
 ---
 
@@ -19,7 +20,8 @@ Se o menu interativo que aparece:
 1. Adicionar uma nova tarefa (digite o texto da tarefa).
 2. Listar todas as tarefas salvas.
 3. Remover uma tarefa (escolha pelo número mostrado na lista).
-4. Sair do programa.
+4. Concluir tarefas
+5. Sair do programa.
 
 Após adicionar duas tarefas ("Estudar Python" e "Comprar leite") e escolher a opção "2", você verá:
 
