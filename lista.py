@@ -13,10 +13,9 @@ def salvar_tarefa(lista):
     with open(Tarefas, "w", encoding="utf-8") as f:
         json.dump(lista, f, ensure_ascii=False, indent=4)
 
-def adicionar_tarefa():
+def adicionar_tarefa(add):
     lista = carregar_tarefas()
-    add = input("\nEscreva a tarefa para adicionar: ")
-    lista.append(add)
+    lista.append({"descricao": add, "status": False})
     salvar_tarefa(lista)
     print(f"\nTarefa '{add}' adicionada com êxito")  
 
@@ -24,27 +23,30 @@ def listar_tarefa():
     lista = carregar_tarefas()
     print(f"\nVocê tem {len(lista)} tarefa(s)")
     if lista:
-        print("Suas tarefas:")
         for i, tarefa in enumerate(lista, 1):
-            print(f"{i}. {tarefa}")
+            status = "✅" if tarefa["status"] else "❌"
+            print(f"{i}. {tarefa['descricao']} [{status}]")
     else:
         print("Nenhuma tarefa")
 
-def remover_tarefa():
+def concluir_tarefa(indice):
+    lista = carregar_tarefas()
+    if 1 <= indice <= len(lista):
+        lista [indice - 1]["status"] = True
+        salvar_tarefa(lista)
+        print(f"Tarefa '{lista[indice - 1]['descricao']}' marcada como concluída")
+    else:
+        print("Número inválido")    
+
+def remover_tarefa(indice):
     lista = carregar_tarefas()
     if lista:
       listar_tarefa()
-      try:
-        id = int(input("Digite o número da tarefa que deseja remover: "))
-        ESCOLHA = input("Tem certeza que deseja remover? (s/n) ")
-        if ESCOLHA == 's':
-          if 1 <= id <= len(lista):
-              removida = lista.pop(id - 1)
-              salvar_tarefa(lista)
-              print(f"Tarefa '{removida}' removida com sucesso")
-          else:
-              print("número inválido")
-      except ValueError:
-          print("Digite apenas números")
+      if 1 <= indice <= len(lista):
+          removida = lista.pop(indice - 1)
+          salvar_tarefa(lista)
+          print(f"Tarefa '{removida['descricao']}' removida com sucesso")
+      else:
+          print("número inválido")
     else:
         print("\nLista vazia")
